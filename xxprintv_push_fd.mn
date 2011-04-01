@@ -1,0 +1,22 @@
+xxprintv_push_fd
+_dstkey_ _opt_prefix_ _fd_ _maxlen_
+
+#include <jelio.h>
+
+Push a new context for use by the destiantion _dstkey_. This context directs output to the filedescriptor _fd_. Each output chunk is at most _maxlen_ in size.
+
+Returns 0 on success. Returns non-zero on failure.
+
+jelio_ofmt ,
+xxprintv ,
+xxprintv_push_null ,
+xxprintv_push_mem ,
+xxprintv_push_dmem ,
+xxprintv_pop ,
+xx_assert ,
+xx_error ,
+xx_warn ,
+xx_app ,
+xx_info ,
+xx_debug
+

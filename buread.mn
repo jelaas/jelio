@@ -1,0 +1,17 @@
+buread
+_fd_ _opt_buf_ _len_ _opt_eof_
+
+#include <jelio.h>
+
+Reads at most _len_ bytes from filedescripor _fd_. If end-of-file is encountered a short bytecount will be returned.
+If _opt_buf_ is NULL the function proceeds as normal but no data is stored.
+If _opt_buf_ is no-NULL there must be room for _len_ number of bytes in the buffer _opt_buf_.
+If _opt_eof_ if given *_opt_eof_ is set to nonzero if end of file is encountered.
+The data from filedescriptor _fd_ is buffered internally. The buffer can be freed by a call to buclose().
+
+Returns the number of characters written into the buffer _opt_buf_. If _opt_buf_ is NULL returns the number of characters that would have been written into _opt_buf_.
+
+buclose ,
+bugets ,
+buscanv ,
+sscanv

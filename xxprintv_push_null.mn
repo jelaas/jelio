@@ -1,0 +1,22 @@
+xxprintv_push_null
+_dstkey_
+
+#include <jelio.h>
+
+Push a new context for use by the destiantion _dstkey_. This context is a blackhole for any output. If the macros xx_debug() etc are used the parameters for the output call need not be created.
+
+Returns 0 on success. Returns non-zero on failure.
+
+jelio_ofmt ,
+xxprintv ,
+xxprintv_push_null ,
+xxprintv_push_mem ,
+xxprintv_push_dmem ,
+xxprintv_pop ,
+xx_assert ,
+xx_error ,
+xx_warn ,
+xx_app ,
+xx_info ,
+xx_debug
+

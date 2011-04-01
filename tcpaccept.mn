@@ -1,0 +1,18 @@
+tcpaccept
+_opt_radr_ _s_ _opt_domain_ _timeout_ms_
+
+#include <jelio.h>
+#include <sys/socket.h>
+
+If the _opt_domain_ is AF_INET then _opt_radr_ will point to a 4 byte in_addr_t in network byte order (in_addr_t is a four byte unsigned integer).
+If the _opt_domain_ is AF_INET6 then _opt_radr_ will point to a sequence of 16 unsigned characters that make up the IPV6 address.
+If the _opt_domain_ is AF_UNIX or AF_LOCAL then _opt_radr_ is a string of at most UNIX_PATH_MAX (108) characters long. A buffer capable of holding UNIX_PATH_MAX+1 characters is thus needed. Note that abstract names may contain NULLS (and infact start with a NULL character).
+If _timeout_ms_ is greater than zero this function will spend atleast _timeout_ms_ milliseconds trying to accept a connection.
+If _timeout_ms_ is zero the function will return with no extra delay added. If _s_ is a blocking filedescriptor this may still be infinite.
+If _timeout_ms_ is -1 then the delay is considered to be infinite.
+
+Return a new socket filedescriptor or -1 on error.
+
+tcpopen ,
+tcpaccept ,
+tcplisten

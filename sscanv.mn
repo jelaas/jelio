@@ -1,0 +1,19 @@
+sscanv
+_buf_ _opt_consumed_ _fmt_
+
+#include <jelio.h>
+
+This function reads input from the string buffer _buf_ according to format _fmt_.
+The optional argument _opt_consumed_ is a pointer to an integer. Upon return from the function this integer contains the number of characters parsed from the buffer _buf_.
+The format is specified as free text with optionally sequences of %% embedded.
+The %% sequence is read and translated according to the input format from the next function argument.
+Any characters in the format string may be escaped using a \\ESC character.
+The format arguments are all results of a call to a jelio input format function.
+The names of the format functions resemble the stdio scanf names. Such that i_s() is the format function for strings and i_d() the format function for signed integers.
+
+Upon successful return, this function return the number of format specifiers successfully parsed and read. If end of file is encountered such that no conversion succeeded then EOF (-1) is returned. If one or more conversions succeeded then EOF is never returned, even if encountered.
+
+jelio_ifmt ,
+buclose ,
+buscanv ,
+sscanv

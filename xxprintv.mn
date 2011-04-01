@@ -1,0 +1,29 @@
+xxprintv
+_dstkey_ _fmt_
+
+#include <jelio.h>
+
+This function writes output via the current xxprint-context associated with _dstkey_ according to format _fmt_. If no context has been installed for _dstkey_ the default context is used, which sends output to filedescriptor 2 (usually stderr).
+The format is specified as free text with optionally sequences of %% embedded.
+The %% sequence is replaced by the output from the next function argument.
+Any characters in the format string may be escaped using a \\ESC character.
+The format arguments are all results of a call to a jelio output format function.
+The names of the format functions resemble the stdio printf names. Such that o_s() is the format function for strings and o_d() the format function for signed integers.
+The value of _dstkey_ should be zero or greater unless a predefined constant is used. The predefined constants are: _X_ASSERTION, _X_PANIC, _X_ERROR, _X_WARNING, _X_APPLICATION, _X_INFO and _X_DEBUG. A range of macros are defined that uses these constants (xx_assert etc).
+
+Upon successful return, this function return the number of characters printed.
+If an error is encountered during writing -1 is returned. If context maxlen is reached -2 is returned.
+
+jelio_ofmt ,
+xprintv ,
+xxprintv_push_fd ,
+xxprintv_push_mem ,
+xxprintv_push_dmem ,
+xxprintv_pop ,
+xx_assert ,
+xx_error ,
+xx_warn ,
+xx_app ,
+xx_info ,
+xx_debug
+

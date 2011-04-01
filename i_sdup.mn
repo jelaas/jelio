@@ -1,0 +1,14 @@
+i_sdup
+
+#include <jelio.h>
+
+Input format function for use with jelio *scanv family of functions.
+s is the adress of where to store the pointer to the resulting string.
+The resulting string in *s is always NULL-terminated.
+Use like buscanv(0, "%%", i_sdup(&buf)).
+
+Returns private data. Do not use other than as input to *scanv functions.
+
+jelio_ifmt ,
+i_s ,
+i_d

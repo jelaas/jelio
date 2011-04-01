@@ -1,0 +1,14 @@
+sbuprintv
+_buf_ _maxlen_ _ulen_ _mlen_
+
+#include <jelio.h>
+
+This function writes output to the buffer *_buf_.
+If *_buf_ is NULL a new buffer will be allocated and assigned to *_buf_.
+If *_buf_ is initially non-null then the buffer needs to be dynamically allocated and _ulen_ plus _mlen_ needs to be correct.
+The allocated buffer grows dynamically to fit all output upto _maxlen_ characters (counting the final null terminator).
+_ulen_ is the number of charactes used in the buffer *_buf_.
+_mlen_ is the size of the dynamically allocated buffer *_buf_.
+It is intented that this function is called repeatably (with *_buf_ initially NULL) to output characters into a dynmic buffer.
+
+Upon successful return, this function return the number of characters printed. If an error is encountered during writing -1 is returned.

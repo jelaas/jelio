@@ -1,0 +1,16 @@
+buseek
+_fd_ _offset_ _whence_
+
+#include <jelio.h>
+
+The lseek() function repositions the offset of the open file associated with the file descriptor _fd_ to the argument _offset_ according to the directive _whence_.
+Works the same way as lseek() but for jelio buffered files.
+If the seek moves outside the current buffer, the current buffer will be flushed.
+
+Upon successful completion, lseek() returns the resulting offset location as measured in bytes from the beginning of the file.
+Otherwise, a value of (off_t)-1 is returned and errno is set to indicate the error.
+
+bugetc ,
+bupeekc ,
+buclose ,
+buscanv

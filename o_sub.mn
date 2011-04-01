@@ -1,0 +1,12 @@
+o_sub
+_s_ _offset_ _len_
+
+#include <jelio.h>
+
+Output format function for use with jelio *printv family of functions.
+_s_ is the string to output (a substring of).
+_offset_ is the offset in the string to start at. _len_ is number of characters to use.
+Use like dprintv(1, "Hello %%!", sub("ThisWorldSucks!", 4, 5)).
+If JELIO_NOSHORTO is not defined you may use the macro sub() instead for brevity.
+
+Returns private data. Do not use other than as input to *printv functions.

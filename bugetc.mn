@@ -1,0 +1,16 @@
+bugetc
+_fd_
+
+#include <jelio.h>
+
+Reads one character from filedescripor _fd_.
+The data from filedescriptor _fd_ is buffered internally. The buffer can be freed by a call to buclose(_fd_).
+
+Returns the character read.
+If EOF was reached -1 is returned.
+If a memory allocation error was encountered -2 is returned.
+
+bupeekc ,
+buclose ,
+buscanv
+

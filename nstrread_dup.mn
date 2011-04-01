@@ -1,0 +1,18 @@
+nstrread_dup
+_fd_ _buf_
+
+#include <jelio.h>
+
+Reads a string of nstr format from filedescripor _fd_ into the buffer *_buf_.
+The buffer *_buf_ is allocated to fit the whole nstr being received.
+Data read into *_buf_ is always null-terminated.
+
+Returns the number of characters written into the buffer *_buf_.
+The trailing zero is not counted.
+If an error is encountered -1 will be returned.
+
+nstrread ,
+buclose ,
+dgets ,
+buscanv ,
+sscanv

@@ -1,0 +1,17 @@
+o_nstr
+_s_
+
+#include <jelio.h>
+
+Output format function for use with jelio *printv family of functions.
+_s_ is the string to output in nstr format.
+Use like dprintv(1, "Hello %%!", nstr("In nstr format!")).
+If JELIO_NOSHORTO is not defined you may use the macro nstr() instead for brevity.
+An nstr of length less than 1000 characters is formatted as: "NNN:SSSSS,".
+An nstr of length more than 999 characters is formatted as: "NNNNNNN:SSSSS,".
+An nstr of more then 9999999 characters cannot be encoded using nstr format.
+Where NNN is the length of the string in decimal ascii characters. The length must be prepended with zeros to fill all three positions.
+
+Returns private data. Do not use other than as input to *printv functions.
+
+nstrread

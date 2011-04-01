@@ -1,0 +1,26 @@
+ipcwait
+_opt_exit_status_ _size_ _status_
+
+#include <jelio.h>
+
+ipcwait() will collect the child process or processes that have been started by a ipcexec() call. If any output of the ipcexec() call is configured as IOCON_MEM, ipcwait will also collect this data and write it into the buffer given to ipcexec(). In case of data written to a memory buffer the number of bytes written is returned via the _size_ element in the ipc_stat structure. That is stat->out.size and stat->err.size.
+The exit status of the main child process is optionally returned in _opt_exit_status_. The information in _opt_exit_status_ is returned by waitpid() and the usahe is descripbed in the waitpid man page.
+If a signalhandler for SIGHUP is installed and performs a wait() then the exit status of the process will not be available to ipcwait().
+The ipc_stat structure should be freed by the caller after ipcwait() has been called.
+  The ipc_stat structure
+struct ipc_worker_data {
+  pid_t pid;
+  void *data;
+  size_t size;
+  int fd;
+};
+struct ipc_stat {
+  pid_t pid;
+  struct ipc_worker_data out, err;
+};
+
+Returns the exit status of the program if any.
+On error returns -1.
+
+ipcexec
+

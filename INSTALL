@@ -1,0 +1,11 @@
+Install:
+--------
+
+"make install" or "make -f Makefile.solaris install".
+
+The Makefile will install the lib into:
+/usr/lib/libjelio.a
+/usr/include/jelio.h
+/usr/include/jeliof.h
+
+Optionally run ./vtest to check that the library is working correctly.

@@ -1,0 +1,23 @@
+bsread
+_s_ _fmt_
+
+#include <jelio.h>
+
+Read bits from the bitstream _s_ according to format _fmt_.
+The format specifiers are: s, o, b and B. Each specifier must be followed by a plain text number.
+\\\\'s' requests the reading of characters to string which will be zero terminated.
+\\\\'o' requests the reading of bytes.
+\\\\'b' requests the reading of bits where the first read bit will be assigned to bit 31 of the result.
+\\\\'B' reads bits like 'b' but the last bit read will be assigned to bit 0 of the result.
+Datatypes for the result parameters:
+\\\\'s' char *
+\\\\'o' unsigned char *
+\\\\'b' and 'B' unsigned int *
+Use like: bsread(s, "s4b12", (char *)stringbuf, (unsigned int) myint)
+
+Returns the number of format specifiers that has been successfully assigned.
+Returns -1 if EOF encountered.
+
+bsopen ,
+bsseek ,
+bsclose

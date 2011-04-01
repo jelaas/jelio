@@ -1,0 +1,17 @@
+xprintv_push_fd
+_fd_
+
+#include <jelio.h>
+
+This function sets current xprint-context to write output to the filedescriptor _fd_.
+When the context is no longer to be used xprintv_pop should be called, which removes this context and installs the previous context as current.
+
+Returns 0 on success.
+
+jelio_ofmt ,
+xprintv ,
+xprintv_push_fd ,
+xprintv_push_mem ,
+xprintv_push_dmem ,
+xprintv_pop
+

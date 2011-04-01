@@ -1,0 +1,25 @@
+bugetdupupto
+_fd_ _maxlen_ _upto_len_ _buf_ _opt_eof_ _opt_lost_ _upto_
+
+#include <jelio.h>
+
+Reads input from filedescripor _fd_ until _upto_ or end-of-file is encountered.
+If *_buf_ is given then _maxlen_ must be no greater than the size of the buffer *_buf_.
+If *_buf_ is NULL then a dynamically allocated buffer will be created and filled with upto _maxlen_ characters.
+The sequence _upto_ is stored in the buffer *_buf_ if it was encountered (and _maxlen_ was not reached). If _maxlen_ is reached when inside the delimiter _upto_ a partial delimiter may be written to *_buf_. This can only occur if *_opt_eof_==0, *_opt_lost_ > 0 and the function returned a value greater than zero.
+If _upto_len_ is given as zero _upto_len_ is recalculated as strlen(_upto_).
+If the amount of read data exceeds _maxlen_ the overflow is read and lost.
+Data read into *_buf_ is always null-terminated.
+The data from filedescriptor _fd_ is buffered internally. The buffer can be freed by a call to buclose(_fd_).
+
+Returns the number of characters written into the buffer *_buf_.
+If *_buf_ was initially NULL then *_buf_ will (upon succesful return) contain the adress to the created buffer.
+The trailing zero is not counted.
+If _opt_eof_ is given *_opt_eof_ is set to nonzero if end of file is encountered.
+If _opt_lost_ is given *_opt_lost_ is the number of bytes lost when reading past _maxlen_.
+Returns -1 on error.
+
+buclose ,
+bureadupto ,
+buscanv ,
+sscanv

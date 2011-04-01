@@ -1,0 +1,12 @@
+buclose
+_fd_
+
+#include <jelio.h>
+
+Use to cleanup the buffer connected to the filedescriptor _fd_. All remaining data in the buffer is lost.
+If you reuse the fd for buffered input without calling buclose(_fd_) in between any data remaining unread in the input buffer will be applied to the new _fd_ coupling. If the input buffer was flagged as EOF this flag will also remain and you will not be able to read from the new _fd_ coupling.
+
+Returns 0 on success and -1 on failure.
+
+buscanv ,
+sscanv

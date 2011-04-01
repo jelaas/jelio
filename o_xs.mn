@@ -1,0 +1,30 @@
+o_xs
+_s_ _n_
+
+#include <jelio.h>
+
+Output format function for use with jelio *printv family of functions.
+_s_ is a pointer to binary data to output. _n_ is the length of the binary data.
+The output will be formatted as hexadecimal digits.
+Use like dprintv(1, "Data %%!", xs(&data, 4))).
+If JELIO_NOSHORTO is not defined you may use the macro xs() instead for brevity.
+
+Returns private data. Do not use other than as input to *printv functions.
+
+jelio_ofmt ,
+o_at ,
+o_b ,
+o_c ,
+o_d ,
+o_dF ,
+o_ld ,
+o_lld ,
+o_u ,
+o_uF ,
+o_lu ,
+o_llu ,
+o_sockaddr ,
+o_sub ,
+o_sv ,
+o_svnt ,
+o_t

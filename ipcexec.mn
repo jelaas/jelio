@@ -1,0 +1,26 @@
+ipcexec
+_fn_ _opt_in_ _opt_out_ _opt_err_ _opt_argv_ _opt_envp_ _opt_status_
+
+#include <jelio.h>
+
+ipcexec will fork a childprocess and configure the childs stdin, stdout and stderr according to the options given in _opt_in_, _opt_out_ and _opt_err_.
+After a successful fork the child calls execve(_fn_, argv, envp). If _opt_argv_  is NULL a minimal argv is created with argv[0] = "_fn_" and argv[1] = NULL. If _opt_envp_ is NULL it is replaced by an environment which only contains PATH=/bin.
+The filter function in the iocon struct is as yet unused.
+After successfully calling ipcexec() you need to call ipcwait() to collect the child process and optionally the exit status. ipcwait() will also collect any outstanding output. See ipcwait for a description of the ipc_stat structure.
+  The iocon structure
+enum { IOCON_NONE, IOCON_CTRLFD, IOCON_PIPEFD, IOCON_MEM };
+struct iocon {
+  int type;
+  union {
+    int pipefd; /* connect pipefd to child */
+    int ctrlfd; /* parents reads/writes to/from ctrlfd */
+    void *buf;
+  } ep;
+  size_t size; /* size of buf if buf is used */
+  void (*filter)(int readfd, int writefd); /* install this filter function */
+};
+
+Returns NULL on error. On success returns a pointer to a struct ipc_stat (which should be freed by the caller when appropriate. The ipc_stat struct is then sent as an argument to ipcwait().
+
+ipcwait
+

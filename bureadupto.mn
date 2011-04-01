@@ -1,0 +1,24 @@
+bureadupto
+_fd_ _maxlen_ _upto_len_ _buf_ _opt_eof_ _opt_complete_ _upto_
+
+#include <jelio.h>
+
+Reads input from filedescripor _fd_ until _upto_, _maxlen_ or end-of-file is encountered.
+_maxlen_ is the size of the usable area in buffer _buf_.
+The sequence _upto_ is stored in the buffer if it was encountered (and _maxlen_ was not reached).
+If _upto_len_ is given as zero _upto_len_ is recalculated as strlen(_upto_).
+If the amount of read data exceeds _maxlen_ the overflow is left unread.
+Data read into _buf_ is always null-terminated.
+The data from filedescriptor _fd_ is buffered internally. The buffer can be freed by a call to buclose(_fd_).
+_maxlen_ should be greater than the size of _upto_len_ to ensure correct function when reading breaks inside a potential delimiter (the tail of the data read could be the beginning of _upto_).
+
+Returns the number of characters written into the buffer _buf_.
+The trailing zero is not counted.
+If _opt_eof_ is given *_opt_eof_ is set to nonzero if end of file is encountered.
+If _opt_complete_ is given *_opt_complete_ is set to nonzero if _upto_ was read into _buf_ or set to zero if the function exits for any other reason.
+Returns -1 on error.
+
+buclose ,
+bugetupto ,
+buscanv ,
+sscanv

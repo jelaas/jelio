@@ -1,0 +1,20 @@
+i_d
+_opt_i_
+
+#include <jelio.h>
+
+Input format function for use with jelio *scanv family of functions.
+_opt_i_ is the adress of where to store the resulting integer.
+The function will convert an ascii encoded decimal integer, that may be prefixed with a leading '+' or '-' sign.
+Any leading whitespace is ignored.
+If _opt_s_ is NULL the function will store no data but otherwise work the same.
+
+Returns private data. Do not use other than as input to *scanv functions.
+
+jelio_ifmt ,
+i_ld ,
+i_t ,
+i_sdup ,
+i_u ,
+i_lu ,
+i_s

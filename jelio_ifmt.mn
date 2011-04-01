@@ -1,0 +1,12 @@
+jelio_ifmt
+
+#include <jelio.h>
+
+Jelio input format functions.
+The jelio library has a family of input format functions. These all start with "i_".
+The sum of all the functions implements the same functionality as the C stdio *scanf functions (and more).
+The common implementationo of a input format function is to receive as argument the adress of where to store the resulting data. This is communcated to the input function (such as buscanv() ) as callback function. The callback function does the actual work of parsing the input stream into the requested datatype.
+
+All these functions returns private data. Do not use other than as input to jelio functions that use input format functions.
+
+jelio_ofmt

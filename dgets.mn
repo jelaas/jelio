@@ -1,0 +1,19 @@
+dgets
+_fd_ _opt_buf_ _maxlen_ _opt_eof_
+
+#include <jelio.h>
+
+Reads input from filedescripor _fd_ until linefeed or end-of-file is encountered.
+_maxlen_ is the size of the buffer _opt_buf_.
+If _opt_buf_ is NULL the function proceeds as normal but no data is stored.
+The linefeed character is stored in the buffer if it was encountered (and _maxlen_ was not reached).
+If the amount of read data exceeds _maxlen_ the overflow is flushed and lost.
+If _opt_eof_ if given *_opt_eof_ is set to nonzero if end of file is encountered.
+Data read into _opt_buf_ is always null-terminated.
+
+Returns the number of characters written into the buffer _opt_buf_. If _opt_buf_ is NULL returns the number of characters that would have been written into _opt_buf_.
+The trailing zero is not counted.
+
+bugets ,
+buscanv ,
+sscanv

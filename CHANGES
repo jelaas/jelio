@@ -1,0 +1,9 @@
+ fixed scan bug in i_s and i_sdup
+
+ new input functions i_xs i_Xs i_X i_lX i_set.
+
+ new output functions o_fs() and o_xs(). fs will free input string after use.
+ xs will format binary data as hexadecimal digits.
+
+ new output function o_tr() for character translated output (a la tr command).
+ fixed month off by one in o_at()

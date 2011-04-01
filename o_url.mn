@@ -1,0 +1,33 @@
+o_url
+_urlstr_ _srclen_
+
+#include <jelio.h>
+
+Output format function for use with jelio *printv family of functions.
+_urlstr_ is a pointer to an url-encoded string to decode and output. _srclen_ is the length of string containing the url-encoded encoding. If _srclen_ is 0 (zero) then _srclen_ will be recomputed as the the length of the string _urlstr_.
+The '+' character is not treated as an ecoding for space.
+A truncated hexadecimal encoding of a character will be output as is, no partial decoding is done.
+Use like dprintv(1, "%% world!", o_url("Hello", 0))).
+If JELIO_NOSHORTO is not defined you may use the macro url() instead for brevity.
+
+Returns private data. Do not use other than as input to *printv functions.
+
+jelio_ofmt ,
+o_at ,
+o_b ,
+o_c ,
+o_d ,
+o_dF ,
+o_ld ,
+o_lld ,
+o_u ,
+o_uF ,
+o_lu ,
+o_llu ,
+o_sockaddr ,
+o_sub ,
+o_sv ,
+o_svnt ,
+o_b64 ,
+o_qp ,
+o_t

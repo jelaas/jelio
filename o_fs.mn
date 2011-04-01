@@ -1,0 +1,30 @@
+o_fs
+_s_
+
+#include <jelio.h>
+
+Output format function for use with jelio *printv family of functions.
+_s_ is the string to output.
+Use like dprintv(1, "Hello %%!", fs(strdup("World"))).
+The string _s_ is freed using free(s) after usage (which is the only difference to o_s()).
+If JELIO_NOSHORTO is not defined you may use the macro fs() instead for brevity.
+
+Returns private data. Do not use other than as input to *printv functions.
+
+jelio_ofmt ,
+o_at ,
+o_b ,
+o_c ,
+o_d ,
+o_dF ,
+o_ld ,
+o_lld ,
+o_u ,
+o_uF ,
+o_lu ,
+o_llu ,
+o_sockaddr ,
+o_sub ,
+o_sv ,
+o_svnt ,
+o_t

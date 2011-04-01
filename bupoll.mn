@@ -1,0 +1,15 @@
+bupoll
+_ufds_ _nfds_ _timeout_
+
+#include <jelio.h>
+
+bupoll is a variation on the theme of select and poll. The only difference compared to poll is that the internal jelio buffers are checked before a regular poll() is called.
+If there was buffered data still to be read POLLIN is set for that filedescriptor.
+For the full details of poll se the poll manpage.
+
+On success, a positive number is returned, where the number returned is the number of structures which have non-zero revents fields (in other words, those descriptors with events or errors reported). A value of 0 indicates that the call timed out and no file descriptors have been selected. On error, -1 is returned, and errno is set appropriately.
+For the full details of poll se the poll manpage.
+
+poll ,
+buclose
+

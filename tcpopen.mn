@@ -1,0 +1,18 @@
+tcpopen
+_dst_ _d_port_ _src_ _s_port_ _domain_ _timeout_ms_ _opt_err_
+
+#include <jelio.h>
+#include <sys/socket.h>
+
+If the domain is AF_INET then _src_ and _dst_ must point to a 4 byte in_addr_t in network byte order (in_addr_t is a four byte unsigned integer).
+If the domain is AF_INET6 then _src_ and _dst_ must point to a sequence of 16 unsigned characters that make up the IPV6 address.
+If the domain is AF_UNIX or AF_LOCAL then _src_ and _dst_ are filesystem paths.
+If the path starts with a NULL (a zero length string) then it is assumed to be a linux specific abstract socket (it has a name but is not mapped into the fs).
+If _timeout_ms_ is less than zero an infinite timeout is assumed.
+
+Returns socket filedescriptor or -1 on error.
+If _opt_err_ is given and points to a nonzero value -1 is returned.
+
+tcpopen ,
+tcpaccept ,
+tcplisten

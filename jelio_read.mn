@@ -1,0 +1,17 @@
+jelio_read
+_fd_ _buf_ _count_ _opt_err_
+
+#include <jelio.h>
+
+Unbuffered read of _count_ number of bytes from filedescripor _fd_ into the buffer _buf_.
+Data read into _opt_buf_ is NOT null-terminated.
+The buffer _buf_ must fit atleast _count_ number of bytes.
+
+Returns the number of characters written into the buffer _buf_.
+If an error is encountered and _opt_err_ is non-NULL *_opt_err_ is set to -1.
+If no error is encountered *_opt_err_ is set to 0.
+
+buclose ,
+dgets ,
+buscanv ,
+sscanv

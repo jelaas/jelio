@@ -1,0 +1,20 @@
+tcplisten
+_src_ _domain_ _port_
+
+#include <jelio.h>
+#include <sys/socket.h>
+
+If the _domain_ is AF_INET then src must point to a 4 byte in_addr_t in network byte order (in_addr_t is a four byte unsigned integer).
+If the _domain_ is AF_INET6 then src must point to a sequence of 16 unsigned characters that make up the IPV6 address.
+_port_ is the portnumber for INET and INET6. _port_ is ignored for AF_LOCAL.
+If the domain is AF_UNIX or AF_LOCAL then _src_ is a filesystem path.
+If the path starts with a NULL (a zero length string) then it is assumed to be a linux specific abstract socket (it has a name but is not mapped into the fs).
+The sockopt SO_REUSEADDR is used when binding to the source adress.
+_src_ is optional when _domain_ is either INET or INET6.
+
+Returns the filedescriptor for the listening socket. On error -1 is returned.
+The function will return if either of the socket(), bind() or listen() calls fail.
+
+tcpopen ,
+tcpaccept ,
+tcplisten

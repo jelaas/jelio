@@ -1,0 +1,8 @@
+bugetdupln
+
+#include <jelio.h>
+
+If *opt_buf is set then maxlen is used as the size of the buffer.
+If *opt_buf is NULL then a new buffer will be allocated to fit all data read, but never larger than maxlen.
+
+Returns number of characters written into *opt_buf.

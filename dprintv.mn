@@ -1,0 +1,24 @@
+dprintv
+_fd_ _fmt_
+
+#include <jelio.h>
+
+This function writes output to the filedescriptor _fd_ according to format _fmt_.
+The format is specified as free text with optionally sequences of %% embedded.
+The %% sequence is replaced by the output from the next function argument.
+Any characters in the format string may be escaped using a \\ESC character.
+The format arguments are all results of a call to a jelio output format function.
+The names of the format functions resemble the stdio printf names. Such that o_s() is the format function for strings and o_d() the format function for signed integers.
+
+Upon successful return, this function return the number of characters printed.
+Returns -1 on error.
+
+jelio_ofmt ,
+buprintv ,
+cprintv ,
+sbuprintv ,
+sprintv ,
+sprintv_dup ,
+lprintv ,
+fprintv ,
+printv

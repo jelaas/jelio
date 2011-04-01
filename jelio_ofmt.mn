@@ -1,0 +1,11 @@
+jelio_ofmt
+
+#include <jelio.h>
+
+Jelio output format functions.
+The jelio library has a family of output format functions. These all start with "o_". If JELIO_NOSHORTO is not defined you may use a macro instead for brevity. The macro has the same name as the function excluding the prefix "o_".
+The sum of all the functions implements the same functionality as the C stdio *printf functions (and more).
+
+All these functions returns private data. Do not use other than as input to jelio functions that use output format functions.
+
+jelio_ifmt

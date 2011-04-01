@@ -1,0 +1,12 @@
+o_tr
+_s_ _from_ch_ _opt_to_ch_
+
+#include <jelio.h>
+
+Output format function for use with jelio *printv family of functions.
+_s_ is the string to be translated for output.
+_from_ch_ is a string of characters to be detected in _s_. _opt_to_ch_ is a string of characters that will replace the corresponding character in _from_ch_. If _opt_to_ch_ is not given any character in _s_ that is also in _from_ch_ will be omitted from the result.
+Use like dprintv(1, "Hello %%!", tr("Hello!", "o!", " ?" )).
+If JELIO_NOSHORTO is not defined you may use the macro tr() instead for brevity.
+
+Returns private data. Do not use other than as input to *printv functions.

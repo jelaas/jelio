@@ -1,0 +1,31 @@
+o_b64
+_base64_ _srclen_
+
+#include <jelio.h>
+
+Output format function for use with jelio *printv family of functions.
+_base64_ is a pointer to a base64 encoded string to decode and output. _srclen_ is the length of string containing the base64 encoding. If _srclen_ is 0 (zero) then _srclen_ will be recomputed as the the length of the string _base64_.
+If the encoded string contains non base64 characters these will be skipped.
+Use like dprintv(1, "%% world!", o_b64("aGVsbG8=", 0))).
+If JELIO_NOSHORTO is not defined you may use the macro b64() instead for brevity.
+
+Returns private data. Do not use other than as input to *printv functions.
+
+jelio_ofmt ,
+o_at ,
+o_b ,
+o_c ,
+o_d ,
+o_dF ,
+o_ld ,
+o_lld ,
+o_u ,
+o_uF ,
+o_lu ,
+o_llu ,
+o_sockaddr ,
+o_sub ,
+o_sv ,
+o_svnt ,
+o_qp ,
+o_t

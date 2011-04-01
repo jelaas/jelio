@@ -1,0 +1,17 @@
+i_s
+_opt_s_
+
+#include <jelio.h>
+
+Input format function for use with jelio *scanv family of functions.
+_opt_s_ is the adress of where to store the resulting string.
+valsize is the size of the buffer for s.
+If _opt_s_ is NULL the function will store no data but otherwise work the same.
+The resulting string in s is always NULL-terminated. This means the maximum length of s will be valsize-1.
+Use like buscanv(0, "%%", i_s(buf, 256)).
+
+Returns private data. Do not use other than as input to *scanv functions.
+
+jelio_ifmt ,
+i_sdup ,
+i_d
