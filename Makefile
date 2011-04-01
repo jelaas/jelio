@@ -24,11 +24,12 @@
 #?clean:	
 #?	rm -f *.o vtest memleak dnstest libjelio.a man/*.3 doc/*.html manpages
 #?manpages:
+#?	mkdir -p doc man
 #?	./mk-manpage.sh
 #?	./mk-htmlpage.sh
 #?	touch manpages
 #?manpages-install:	manpages
-#?	mkdir -p $(DESTDIR/$(MANDIR)/man3
+#?	mkdir -p $(DESTDIR)/$(MANDIR)/man3
 #?	cp man/*.3 $(DESTDIR)/$(MANDIR)/man3
 #?install:	libjelio.a manpages-install
 #?	mkdir -p $(DESTDIR)/$(PREFIX)/lib $(DESTDIR)/$(PREFIX)/include $(DESTDIR)/$(MANDIR)/man3
@@ -55,15 +56,16 @@ libjelio.a:	$(LIBOBJ)
 clean:	
 	rm -f *.o vtest memleak dnstest libjelio.a man/*.3 doc/*.html manpages
 manpages:
+	mkdir -p doc man
 	./mk-manpage.sh
 	./mk-htmlpage.sh
 	touch manpages
 manpages-install:	manpages
-	mkdir -p $(MANDIR)/man3
-	cp man/*.3 $(MANDIR)/man3
+	mkdir -p $(DESTDIR)/$(MANDIR)/man3
+	cp man/*.3 $(DESTDIR)/$(MANDIR)/man3
 install:	libjelio.a manpages-install
-	mkdir -p $(PREFIX)/lib $(PREFIX)/include $(MANDIR)/man3
-	cp -f libjelio.a $(PREFIX)/lib
-	cp -f jelio.h jeliof.h $(PREFIX)/include
+	mkdir -p $(DESTDIR)/$(PREFIX)/lib $(DESTDIR)/$(PREFIX)/include $(DESTDIR)/$(MANDIR)/man3
+	cp -f libjelio.a $(DESTDIR)/$(PREFIX)/lib
+	cp -f jelio.h jeliof.h $(DESTDIR)/$(PREFIX)/include
 tarball:	clean
 	make-tarball.sh
