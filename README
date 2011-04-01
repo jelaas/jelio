@@ -1,0 +1,19 @@
+This is a proof of concept C stdio replacement library.
+
+Its aim is not to provide new implementations of the exact same function calls.
+But to provide similar functionality from an interface that permits efficient
+static linking.
+
+By separating the print formats into functions they will only be linked if they
+are actually used by the program.
+
+Yes, I know documentation is lacking although most of the functions should be
+pretty self explaining due to the similarity with the C stdio.
+The more advanced functions are slightly documented in the header files.
+
+You can also look at the vtest.c file for some examples of usage.
+
+jelio is a  C stdio replacement library.
+The aim is to provide similar functionality as the C stdio functions from an interface that permits efficient static linking.
+
+
